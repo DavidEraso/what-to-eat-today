@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LunchPSLDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LunchPSLDBEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Acompañamiento" EntityType="LunchPSLDBModel.Acompañamiento" />
+    <EntitySet Name="Almuerzos" EntityType="LunchPSLDBModel.Almuerzos" />
+    <EntitySet Name="EjecutivoCarnes" EntityType="LunchPSLDBModel.EjecutivoCarnes" />
+    <EntitySet Name="EjecutivoGuarniciones" EntityType="LunchPSLDBModel.EjecutivoGuarniciones" />
+    <EntitySet Name="Entradas" EntityType="LunchPSLDBModel.Entradas" />
+    <EntitySet Name="Menu" EntityType="LunchPSLDBModel.Menu" />
+    <EntitySet Name="sysdiagrams" EntityType="LunchPSLDBModel.sysdiagrams" />
+    <AssociationSet Name="FK_Almuerzos_Acompañamiento" Association="LunchPSLDBModel.FK_Almuerzos_Acompañamiento">
+      <End Role="Acompañamiento" EntitySet="Acompañamiento" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_EjecutivoCarnes" Association="LunchPSLDBModel.FK_Almuerzos_EjecutivoCarnes">
+      <End Role="EjecutivoCarnes" EntitySet="EjecutivoCarnes" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_EjecutivoGuarniciones" Association="LunchPSLDBModel.FK_Almuerzos_EjecutivoGuarniciones">
+      <End Role="EjecutivoGuarniciones" EntitySet="EjecutivoGuarniciones" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_Entradas" Association="LunchPSLDBModel.FK_Almuerzos_Entradas">
+      <End Role="Entradas" EntitySet="Entradas" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_Menu" Association="LunchPSLDBModel.FK_Almuerzos_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Acompañamiento">
+    <Key>
+      <PropertyRef Name="AcompañamientoId" />
+    </Key>
+    <Property Name="AcompañamientoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Almuerzos" Relationship="LunchPSLDBModel.FK_Almuerzos_Acompañamiento" FromRole="Acompañamiento" ToRole="Almuerzos" />
+  </EntityType>
+  <EntityType Name="Almuerzos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EntradaId" Type="Int32" Nullable="false" />
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <Property Name="AcompañamientoId" Type="Int32" Nullable="false" />
+    <Property Name="EjecutivoCarnesId" Type="Int32" />
+    <Property Name="EjecutivoGuarnicionId" Type="Int32" />
+    <Property Name="Comentario" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Acompañamiento" Relationship="LunchPSLDBModel.FK_Almuerzos_Acompañamiento" FromRole="Almuerzos" ToRole="Acompañamiento" />
+    <NavigationProperty Name="EjecutivoCarnes" Relationship="LunchPSLDBModel.FK_Almuerzos_EjecutivoCarnes" FromRole="Almuerzos" ToRole="EjecutivoCarnes" />
+    <NavigationProperty Name="EjecutivoGuarniciones" Relationship="LunchPSLDBModel.FK_Almuerzos_EjecutivoGuarniciones" FromRole="Almuerzos" ToRole="EjecutivoGuarniciones" />
+    <NavigationProperty Name="Entradas" Relationship="LunchPSLDBModel.FK_Almuerzos_Entradas" FromRole="Almuerzos" ToRole="Entradas" />
+    <NavigationProperty Name="Menu" Relationship="LunchPSLDBModel.FK_Almuerzos_Menu" FromRole="Almuerzos" ToRole="Menu" />
+    <Property Name="PagoTicket" Type="Int32" />
+    <Property Name="PagoSodexo" Type="Int32" />
+    <Property Name="PagoEfectivo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EjecutivoCarnes">
+    <Key>
+      <PropertyRef Name="EjecutivoCarnesId" />
+    </Key>
+    <Property Name="EjecutivoCarnesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Almuerzos" Relationship="LunchPSLDBModel.FK_Almuerzos_EjecutivoCarnes" FromRole="EjecutivoCarnes" ToRole="Almuerzos" />
+  </EntityType>
+  <EntityType Name="EjecutivoGuarniciones">
+    <Key>
+      <PropertyRef Name="EjecutivoGuarnicionesId" />
+    </Key>
+    <Property Name="EjecutivoGuarnicionesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Almuerzos" Relationship="LunchPSLDBModel.FK_Almuerzos_EjecutivoGuarniciones" FromRole="EjecutivoGuarniciones" ToRole="Almuerzos" />
+  </EntityType>
+  <EntityType Name="Entradas">
+    <Key>
+      <PropertyRef Name="EntradasId" />
+    </Key>
+    <Property Name="EntradasId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Almuerzos" Relationship="LunchPSLDBModel.FK_Almuerzos_Entradas" FromRole="Entradas" ToRole="Almuerzos" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Costo" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Almuerzos" Relationship="LunchPSLDBModel.FK_Almuerzos_Menu" FromRole="Menu" ToRole="Almuerzos" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Almuerzos_Acompañamiento">
+    <End Type="LunchPSLDBModel.Acompañamiento" Role="Acompañamiento" Multiplicity="1" />
+    <End Type="LunchPSLDBModel.Almuerzos" Role="Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Acompañamiento">
+        <PropertyRef Name="AcompañamientoId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="AcompañamientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_EjecutivoCarnes">
+    <End Type="LunchPSLDBModel.EjecutivoCarnes" Role="EjecutivoCarnes" Multiplicity="0..1" />
+    <End Type="LunchPSLDBModel.Almuerzos" Role="Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EjecutivoCarnes">
+        <PropertyRef Name="EjecutivoCarnesId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="EjecutivoCarnesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_EjecutivoGuarniciones">
+    <End Type="LunchPSLDBModel.EjecutivoGuarniciones" Role="EjecutivoGuarniciones" Multiplicity="0..1" />
+    <End Type="LunchPSLDBModel.Almuerzos" Role="Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EjecutivoGuarniciones">
+        <PropertyRef Name="EjecutivoGuarnicionesId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="EjecutivoGuarnicionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_Entradas">
+    <End Type="LunchPSLDBModel.Entradas" Role="Entradas" Multiplicity="1" />
+    <End Type="LunchPSLDBModel.Almuerzos" Role="Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entradas">
+        <PropertyRef Name="EntradasId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="EntradaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_Menu">
+    <End Type="LunchPSLDBModel.Menu" Role="Menu" Multiplicity="1" />
+    <End Type="LunchPSLDBModel.Almuerzos" Role="Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

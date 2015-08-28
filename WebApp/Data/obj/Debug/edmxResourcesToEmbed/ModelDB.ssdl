@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LunchPSLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Acompañamiento">
+    <Key>
+      <PropertyRef Name="AcompañamientoId" />
+    </Key>
+    <Property Name="AcompañamientoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Almuerzos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntradaId" Type="int" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="AcompañamientoId" Type="int" Nullable="false" />
+    <Property Name="EjecutivoCarnesId" Type="int" />
+    <Property Name="EjecutivoGuarnicionId" Type="int" />
+    <Property Name="Comentario" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="PagoTicket" Type="int" />
+    <Property Name="PagoSodexo" Type="int" />
+    <Property Name="PagoEfectivo" Type="int" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EjecutivoCarnes">
+    <Key>
+      <PropertyRef Name="EjecutivoCarnesId" />
+    </Key>
+    <Property Name="EjecutivoCarnesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EjecutivoGuarniciones">
+    <Key>
+      <PropertyRef Name="EjecutivoGuarnicionesId" />
+    </Key>
+    <Property Name="EjecutivoGuarnicionesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entradas">
+    <Key>
+      <PropertyRef Name="EntradasId" />
+    </Key>
+    <Property Name="EntradasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Costo" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Almuerzos_Acompañamiento">
+    <End Role="Acompañamiento" Type="Self.Acompañamiento" Multiplicity="1" />
+    <End Role="Almuerzos" Type="Self.Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Acompañamiento">
+        <PropertyRef Name="AcompañamientoId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="AcompañamientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_EjecutivoCarnes">
+    <End Role="EjecutivoCarnes" Type="Self.EjecutivoCarnes" Multiplicity="0..1" />
+    <End Role="Almuerzos" Type="Self.Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EjecutivoCarnes">
+        <PropertyRef Name="EjecutivoCarnesId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="EjecutivoCarnesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_EjecutivoGuarniciones">
+    <End Role="EjecutivoGuarniciones" Type="Self.EjecutivoGuarniciones" Multiplicity="0..1" />
+    <End Role="Almuerzos" Type="Self.Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EjecutivoGuarniciones">
+        <PropertyRef Name="EjecutivoGuarnicionesId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="EjecutivoGuarnicionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_Entradas">
+    <End Role="Entradas" Type="Self.Entradas" Multiplicity="1" />
+    <End Role="Almuerzos" Type="Self.Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entradas">
+        <PropertyRef Name="EntradasId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="EntradaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Almuerzos_Menu">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="Almuerzos" Type="Self.Almuerzos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="Almuerzos">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LunchPSLDBModelStoreContainer">
+    <EntitySet Name="Acompañamiento" EntityType="Self.Acompañamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Almuerzos" EntityType="Self.Almuerzos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EjecutivoCarnes" EntityType="Self.EjecutivoCarnes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EjecutivoGuarniciones" EntityType="Self.EjecutivoGuarniciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entradas" EntityType="Self.Entradas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Almuerzos_Acompañamiento" Association="Self.FK_Almuerzos_Acompañamiento">
+      <End Role="Acompañamiento" EntitySet="Acompañamiento" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_EjecutivoCarnes" Association="Self.FK_Almuerzos_EjecutivoCarnes">
+      <End Role="EjecutivoCarnes" EntitySet="EjecutivoCarnes" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_EjecutivoGuarniciones" Association="Self.FK_Almuerzos_EjecutivoGuarniciones">
+      <End Role="EjecutivoGuarniciones" EntitySet="EjecutivoGuarniciones" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_Entradas" Association="Self.FK_Almuerzos_Entradas">
+      <End Role="Entradas" EntitySet="Entradas" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almuerzos_Menu" Association="Self.FK_Almuerzos_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Almuerzos" EntitySet="Almuerzos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

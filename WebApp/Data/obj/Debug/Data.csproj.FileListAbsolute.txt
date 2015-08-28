@@ -1,0 +1,11 @@
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\Data.dll.config
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\Data.dll
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\Data.pdb
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\Common.dll
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\EntityFramework.dll
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\Common.pdb
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\EntityFramework.xml
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\bin\Debug\es\EntityFramework.resources.dll
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\obj\Debug\Data.dll
+D:\PSL\JUAN\PSLLunch\Lunch\WebApp\Data\obj\Debug\Data.pdb

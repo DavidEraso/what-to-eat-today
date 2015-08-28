@@ -1,0 +1,68 @@
+﻿<div id="dvData" style="display: none;">
+    <table>
+        <!--class="table table-hover table-bordered">-->
+        <tr>
+            <th>Nombre</th>
+            <th>Entrada</th>
+            <th>Menu</th>
+            <th>Carne</th>
+            <th>Guarnicion</th>
+            <th>Acompañamiento</th>
+            <th>Comentario</th>
+            <th>Efectivo</th>
+            <th>Sodexo</th>
+            <th>Tiquete</th>
+            <th>Costo</th>
+        </tr>
+        {{#each Result}}
+        <tr>
+            <td>{{this.Nombre}}</td>
+            <td>{{this.EntradaNombre}}</td>
+            <td>{{this.MenuNombre}}</td>
+            <td>{{this.CarneNombre}}</td>
+            <td>{{this.GuarnicionNombre}}</td>
+            <td>{{this.AcompañamientoNombre}}</td>
+            <td>{{this.Comentario}}</td>
+            <td>{{this.PagoEfectivo}}</td>
+            <td>{{this.PagoSodexo}}</td>
+            <td>{{this.PagoTicket}}</td>
+            <td>{{this.Costo}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+
+<h1>Pedidos</h1>
+
+<table id="tableShowed" class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Entrada</th>
+        <th>Menu</th>
+        <th>Carne</th>
+        <th>Guarnicion</th>
+        <th>Acompañamiento</th>
+        <th>Comentario</th>
+        <th>Efectivo</th>
+        <th>Sodexo</th>
+        <th>Tiquete</th>
+        <th>Costo</th>
+    </tr>
+    {{#each Result}}
+    <tr>
+        <td>{{this.Nombre}}</td>
+        <td>{{this.EntradaNombre}}</td>
+        <td>{{this.MenuNombre}}</td>
+        <td>{{this.CarneNombre}}</td>
+        <td>{{this.GuarnicionNombre}}</td>
+        <td>{{this.AcompañamientoNombre}}</td>
+        <td>{{this.Comentario}}</td>
+        <td>{{this.PagoEfectivo}}</td>
+        <td>{{this.PagoSodexo}}</td>
+        <td>{{this.PagoTicket}}</td>
+        <td>{{this.Costo}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<button id="exportar" type="button" class="btn btn-success">Exportar Excel</button>

@@ -1,0 +1,116 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="jumbotron">
+            <h1>PSL Gatos</h1>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div id="pedidoDiv">
+        <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" id="pedidosButton" data-route="Pedido" class="btn btn-default">Pedidos</button>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+                <label>Nombre: </label>
+                <input id="Nombre" />
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+                <div id="EntradaSelect" class="dropdown main">
+                    <label for="selEntrada">Seleccione Entrada:</label>
+                    <select class="form-control" id="selEntrada">
+                        {{#each Entradas}}
+                        <option value="{{this.Id}}">{{this.Nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div id="MenuSelect" class="dropdown main">
+                    <label for="selMenu">Seleccione Menu:</label>
+                    <select class="form-control" id="selMenu">
+                        {{#each Menu}}
+                        <option value="{{this.Id}}">{{this.Nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div id="CarneSelect" class="dropdown main">
+                    <label for="selCarne">Seleccione Carne:</label>
+                    <select class="form-control" id="selCarne">
+                        {{#each Carnes}}
+                        <option value="{{this.Id}}">{{this.Nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div id="GuarnicionSelect" class="dropdown main">
+                    <label for="selGuarnicion">Seleccione Guarnicion:</label>
+                    <select class="form-control" id="selGuarnicion">
+                        {{#each Guarnicion}}
+                        <option value="{{this.Id}}">{{this.Nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div id="AcompañamientoSelect" class="dropdown main">
+                    <label for="selAcompañamiento">Seleccione Acompañamiento:</label>
+                    <select class="form-control" id="selAcompañamiento">
+                        {{#each Acompañamiento}}
+                        <option value="{{this.Id}}">{{this.Nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+                <label>Comentarios: </label>
+                <input id="Comentario" />
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+                <h3>Forma de Pago: </h3>
+                <div class="main">
+                    <label for="PagoEfectivo">Efectivo</label>
+                    <input id="PagoEfectivo" />
+                </div>
+                <div class="main">
+                    <label for="PagoSodexo">Sodexo</label>
+                    <input id="PagoSodexo" />
+                </div>
+                <div class="main">
+                    <label for="PagoTiquete">Ticket</label>
+                    <input id="PagoTiquete" />
+                </div>
+                <div class="main">
+                    <p>
+                        Total
+                        <span id="PagoTotal">0</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+                <button class="last" id="ordenar">
+                    Ordenar!
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="resultTable">
+
+
+    </div>
+
+</div>
+
+
+

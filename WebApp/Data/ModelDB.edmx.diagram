@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f121420a2a294c47aecfa0479a81641b" Name="Diagram1">
+        <EntityTypeShape EntityType="LunchPSLDBModel.Acompañamiento" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="LunchPSLDBModel.Almuerzos" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="LunchPSLDBModel.EjecutivoCarnes" Width="1.5" PointX="0.75" PointY="13.375" />
+        <EntityTypeShape EntityType="LunchPSLDBModel.EjecutivoGuarniciones" Width="1.5" PointX="0.75" PointY="10.875" />
+        <EntityTypeShape EntityType="LunchPSLDBModel.Entradas" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="LunchPSLDBModel.Menu" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="LunchPSLDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
+        <AssociationConnector Association="LunchPSLDBModel.FK_Almuerzos_Acompañamiento" />
+        <AssociationConnector Association="LunchPSLDBModel.FK_Almuerzos_EjecutivoCarnes" />
+        <AssociationConnector Association="LunchPSLDBModel.FK_Almuerzos_EjecutivoGuarniciones" />
+        <AssociationConnector Association="LunchPSLDBModel.FK_Almuerzos_Entradas" />
+        <AssociationConnector Association="LunchPSLDBModel.FK_Almuerzos_Menu" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,122 @@
+﻿<div class="page-header">
+    <h1>Configurar Menú</h1>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <button type="button" id="backButton" data-route="Main" class="btn btn-default">Back</button>
+    </div>
+
+    <div id="modalDiv">
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="thumbnail">
+                <div id="MenuSelect">
+                    <h1>Menus:</h1>
+                    <button id="CrearMenu" class="btn btn-primary">Crear Menú</button>
+                    <p>---------</p>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>Activo</th>
+                            <th>Nombre</th>
+                            <th>Costo</th>
+                        </tr>
+                        {{#each Menu}}
+                        <tr>
+                            <td><input type="checkbox" data-id="{{this.Id}}" data-nombre="{{this.Nombre}}" data-activo="{{this.Activo}}" {{ this.Cheched }}></td>
+                            <td><label>{{this.Nombre}}</label></td>
+                            <td><label>{{this.Costo}}</label></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <div id="EntradaSelect" class="config">
+                    <h1>Entradas:</h1>
+                    <button id="CrearEntrada" class="btn btn-primary">Crear Entrada</button>
+                    <p>---------</p>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>Activo</th>
+                            <th>Nombre</th>
+                        </tr>
+                        {{#each Entradas}}
+                        <tr>
+                            <td><input type="checkbox" data-id="{{this.Id}}" data-nombre="{{this.Nombre}}" data-activo="{{this.Activo}}" {{ this.Cheched }}></td>
+                            <td><label>{{this.Nombre}}</label></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <div id="CarneSelect">
+                    <h1>Carnes:</h1>
+                    <button id="CrearCarne" class="btn btn-primary">Crear Carne</button>
+                    <p>---------</p>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>Activo</th>
+                            <th>Nombre</th>
+                        </tr>
+                        {{#each Carnes}}
+                        <tr>
+                            <td><input type="checkbox" data-id="{{this.Id}}" data-nombre="{{this.Nombre}}" data-activo="{{this.Activo}}" {{ this.Cheched }}></td>
+                            <td><label>{{this.Nombre}}</label></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <div id="GuarnicionSelect">
+                    <h1>Guarniciones:</h1>
+                    <button id="CrearGuarnicion" class="btn btn-primary">Crear Guarnición</button>
+                    <p>---------</p>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>Activo</th>
+                            <th>Nombre</th>
+                        </tr>
+                        {{#each Guarnicion}}
+                        <tr>
+                            <td><input type="checkbox" data-id="{{this.Id}}" data-nombre="{{this.Nombre}}" data-activo="{{this.Activo}}" {{ this.Cheched }}></td>
+                            <td><label>{{this.Nombre}}</label></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <div id="AcompañamientoSelect">
+                    <h1>Acompañamientos:</h1>
+                    <button id="CrearAcompañamiento" class="btn btn-primary">Crear Acompañamiento</button>
+                    <p>---------</p>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>Activo</th>
+                            <th>Nombre</th>
+                        </tr>
+                        {{#each Acompañamiento}}
+                        <tr>
+                            <td><input type="checkbox" data-id="{{this.Id}}" data-nombre="{{this.Nombre}}" data-activo="{{this.Activo}}" {{ this.Cheched }}></td>
+                            <td><label>{{this.Nombre}}</label></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
